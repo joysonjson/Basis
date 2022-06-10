@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
         
         let story = UIStoryboard.init(name: StoryBoard.login.rawValue, bundle: nil)
-        let vc = story.instantiateViewController(withIdentifier: "PhoneNumberViewController") as! PhoneNumberViewController
+        let vc = story.instantiateViewController(withIdentifier: "EmailViewController") as! EmailViewController
         self.window?.rootViewController = vc
         
     }

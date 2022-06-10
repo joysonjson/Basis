@@ -1,5 +1,5 @@
 //
-//  OtpVerifyViewController.swift
+//  EmailViewController.swift
 //  Basis
 //
 //  Created by Joyson P S on 09/06/22.
@@ -7,17 +7,17 @@
 
 import UIKit
 
-class OtpVerifyViewController: UIViewController {
+class EmailViewController: UIViewController {
     @IBOutlet weak var submitButton: BButton!
-    @IBOutlet weak var invalidOtpError: UILabel!
-    @IBOutlet weak var otpTextField: BTextField!
+    @IBOutlet weak var invalidEmailError: UILabel!
+    @IBOutlet weak var emailTextField: BTextField!
     let vm = EmailViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.bind()
     }
     private func setUP(){
-        self.otpTextField.delegate = self
+        self.emailTextField.delegate = self
 
     }
     private func bind(){
@@ -30,10 +30,10 @@ class OtpVerifyViewController: UIViewController {
     }
     
     @IBAction func submitAction(_ sender: Any) {
-        self.vm.sendOtp(email: self.otpTextField.text ?? "")
+        self.vm.sendOtp(email: self.emailTextField.text ?? "")        
     }
     private func validate(){
-        if (self.otpTextField.text?.isValidEmail ?? false){
+        if (self.emailTextField.text?.isValidEmail ?? false){
             self.submitButton.isEnabled = true
         }else{
             self.submitButton.isEnabled = false
@@ -42,7 +42,8 @@ class OtpVerifyViewController: UIViewController {
 
 }
 
-extension OtpVerifyViewController: UITextFieldDelegate{
+
+extension EmailViewController: UITextFieldDelegate{
     func textFieldDidEndEditing(_ textField: UITextField) {
         self.validate()
     }

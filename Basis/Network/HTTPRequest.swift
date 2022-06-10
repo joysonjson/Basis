@@ -30,8 +30,11 @@ struct HttpRequest{
      - Parameter failureBlock:(_ error: String) -> Void
      */
 
-    func getApiData<T:Decodable>(requestUrl: URL, resultType: T.Type, queryParams:queryParams = [:],withSuccess successBlock:@escaping (_ object:T?)->Void,andFailure failureBlock: @escaping (_ error: String)->Void){
-        let req = createRequest.createRequest(httpMethod: .get, url: requestUrl, queryParams: queryParams, headers: headers)
+    func getApiData<T:Decodable>(endpoint: URLEndpoint, resultType: T.Type, queryParams:queryParams = [:],withSuccess successBlock:@escaping (_ object:T?)->Void,andFailure failureBlock: @escaping (_ error: String)->Void){
+        guard let url = URL(string: APIEnvironment.development.baseURL + endpoint.rawValue) else {
+            return
+        }
+        let req = createRequest.createRequest(httpMethod: .get, url: url, queryParams: queryParams, headers: headers)
         service.call(with: req) { (response,repsonseData,error ) in
             let (staus,err,res) = self.reponseParser(response: response, responseData: repsonseData, error: error, resultType: T.self)
             if (staus){
@@ -53,8 +56,11 @@ struct HttpRequest{
      - Parameter failureBlock:(_ error: String) -> Void
      */
 
-    func postApiData<T:Decodable>(requestUrl: URL, data:[String:Any]?,resultType: T.Type, queryParams:queryParams = [:],withSuccess successBlock:@escaping (_ object:T?)->Void,andFailure failureBlock: @escaping (_ error: String)->Void){
-        var req = createRequest.createRequest(httpMethod: .get, url: requestUrl, queryParams: queryParams, headers: headers)
+    func postApiData<T:Decodable>(endpoint: URLEndpoint, data:[String:Any]?,resultType: T.Type, queryParams:queryParams = [:],withSuccess successBlock:@escaping (_ object:T?)->Void,andFailure failureBlock: @escaping (_ error: String)->Void){
+        guard let url = URL(string: APIEnvironment.development.baseURL + endpoint.rawValue) else {
+            return
+        }
+        var req = createRequest.createRequest(httpMethod: .post, url: url, queryParams: queryParams, headers: headers)
         req.addBody(param: data)
         service.call(with: req) { (response,repsonseData,error ) in
             let (staus,err,res) = self.reponseParser(response: response, responseData: repsonseData, error: error, resultType: T.self)
@@ -82,19 +88,21 @@ extension HttpRequest{
     private func reponseParser<T:Decodable>(response: URLResponse?,responseData: Data?,error: Error?,resultType:T.Type )-> (Bool,String?,T?){
         let httpResponse = response as? HTTPURLResponse
         if 200...300 ~= httpResponse?.statusCode ?? 404, let data = responseData{
-            let res = try? JSONDecoder().decode(T.self, from: data)
-            if let obj = res{
-                return (true,error?.localizedDescription,obj)
+            let data = responseData?.getJsonObject() as? Dictionary<String,Any>
+            if let dataPresent = data?["results"] ,let jsondata = try? JSONSerialization.data(withJSONObject: dataPresent as Any, options: .prettyPrinted){
+                let res = try? JSONDecoder().decode(T.self, from: jsondata)
+                return (true,nil,res)
+            }else{
+                return (false,error?.localizedDescription,nil)
             }
-            return (true,error?.localizedDescription,nil)
-
         }else{
             guard let data = responseData else {
                 return (false,error?.localizedDescription,nil)
-
             }
             let res = try? JSONDecoder().decode(ErrorResponse.self, from: data)
             return (false,res?.errors?.first?.message,nil)
         }
+        return (true,error?.localizedDescription,nil)
+
     }
 }

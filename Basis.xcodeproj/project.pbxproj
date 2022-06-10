@@ -22,7 +22,7 @@
 		088EACF728512477007FD854 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088EACEF28512477007FD854 /* HTTPMethod.swift */; };
 		088EACF828512477007FD854 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088EACF028512477007FD854 /* ErrorResponse.swift */; };
 		088EACFB28512B7D007FD854 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 088EACFA28512B7D007FD854 /* Login.storyboard */; };
-		088EACFE28512BA2007FD854 /* PhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088EACFD28512BA2007FD854 /* PhoneNumberViewController.swift */; };
+		088EACFE28512BA2007FD854 /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088EACFD28512BA2007FD854 /* EmailViewController.swift */; };
 		088EAD0028512BAE007FD854 /* OtpVerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088EACFF28512BAE007FD854 /* OtpVerifyViewController.swift */; };
 		088EAD0328512BE5007FD854 /* AlertOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088EAD0228512BE5007FD854 /* AlertOptions.swift */; };
 		088EAD0528512BF7007FD854 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088EAD0428512BF7007FD854 /* Observable.swift */; };
@@ -31,6 +31,8 @@
 		088EAD0C28512C83007FD854 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088EAD0B28512C83007FD854 /* Endpoint.swift */; };
 		088EAD0F28528177007FD854 /* BTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088EAD0E28528177007FD854 /* BTextField.swift */; };
 		088EAD11285289C8007FD854 /* BButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088EAD10285289C8007FD854 /* BButton.swift */; };
+		088EAD1628530900007FD854 /* EmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088EAD15285308FF007FD854 /* EmailViewModel.swift */; };
+		088EAD1B2853214B007FD854 /* EmailToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088EAD1A2853214A007FD854 /* EmailToken.swift */; };
 		B47E39DE03C5FC440D314F32 /* Pods_Basis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A504CC370FC35CF5246DC52E /* Pods_Basis.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,7 +54,7 @@
 		088EACEF28512477007FD854 /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		088EACF028512477007FD854 /* ErrorResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		088EACFA28512B7D007FD854 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
-		088EACFD28512BA2007FD854 /* PhoneNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberViewController.swift; sourceTree = "<group>"; };
+		088EACFD28512BA2007FD854 /* EmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
 		088EACFF28512BAE007FD854 /* OtpVerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpVerifyViewController.swift; sourceTree = "<group>"; };
 		088EAD0228512BE5007FD854 /* AlertOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertOptions.swift; sourceTree = "<group>"; };
 		088EAD0428512BF7007FD854 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
@@ -61,6 +63,8 @@
 		088EAD0B28512C83007FD854 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		088EAD0E28528177007FD854 /* BTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTextField.swift; sourceTree = "<group>"; };
 		088EAD10285289C8007FD854 /* BButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BButton.swift; sourceTree = "<group>"; };
+		088EAD15285308FF007FD854 /* EmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewModel.swift; sourceTree = "<group>"; };
+		088EAD1A2853214A007FD854 /* EmailToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailToken.swift; sourceTree = "<group>"; };
 		A504CC370FC35CF5246DC52E /* Pods_Basis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Basis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC959E052CAEDFDAA66CB2EE /* Pods-Basis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Basis.release.xcconfig"; path = "Target Support Files/Pods-Basis/Pods-Basis.release.xcconfig"; sourceTree = "<group>"; };
 		D8AB007E0A9B8DB141DAA9EC /* Pods-Basis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Basis.debug.xcconfig"; path = "Target Support Files/Pods-Basis/Pods-Basis.debug.xcconfig"; sourceTree = "<group>"; };
@@ -141,6 +145,8 @@
 		088EACF928512B6D007FD854 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				088EAD1928531CC2007FD854 /* Modal */,
+				088EAD14285308E6007FD854 /* ViewModel */,
 				088EACFC28512B85007FD854 /* ViewController */,
 				088EACFA28512B7D007FD854 /* Login.storyboard */,
 			);
@@ -150,7 +156,7 @@
 		088EACFC28512B85007FD854 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				088EACFD28512BA2007FD854 /* PhoneNumberViewController.swift */,
+				088EACFD28512BA2007FD854 /* EmailViewController.swift */,
 				088EACFF28512BAE007FD854 /* OtpVerifyViewController.swift */,
 			);
 			path = ViewController;
@@ -182,6 +188,22 @@
 				088EAD10285289C8007FD854 /* BButton.swift */,
 			);
 			path = Compoments;
+			sourceTree = "<group>";
+		};
+		088EAD14285308E6007FD854 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				088EAD15285308FF007FD854 /* EmailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		088EAD1928531CC2007FD854 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				088EAD1A2853214A007FD854 /* EmailToken.swift */,
+			);
+			path = Modal;
 			sourceTree = "<group>";
 		};
 		2761387BA2A5789F479AB4CD /* Pods */ = {
@@ -326,16 +348,18 @@
 				088EAD11285289C8007FD854 /* BButton.swift in Sources */,
 				088EACF128512477007FD854 /* NetworkingLogLevel.swift in Sources */,
 				088EACF628512477007FD854 /* HTTPExtension.swift in Sources */,
+				088EAD1628530900007FD854 /* EmailViewModel.swift in Sources */,
 				088EAD0728512C25007FD854 /* Extension.swift in Sources */,
 				088EACF328512477007FD854 /* HTTPCreateRequest.swift in Sources */,
 				088EACF428512477007FD854 /* HTTPRequest.swift in Sources */,
 				088EAD0C28512C83007FD854 /* Endpoint.swift in Sources */,
 				088EACF528512477007FD854 /* NetworkSession.swift in Sources */,
 				088EACD228511D95007FD854 /* AppDelegate.swift in Sources */,
-				088EACFE28512BA2007FD854 /* PhoneNumberViewController.swift in Sources */,
+				088EACFE28512BA2007FD854 /* EmailViewController.swift in Sources */,
 				088EACF828512477007FD854 /* ErrorResponse.swift in Sources */,
 				088EACF728512477007FD854 /* HTTPMethod.swift in Sources */,
 				088EACD428511D95007FD854 /* SceneDelegate.swift in Sources */,
+				088EAD1B2853214B007FD854 /* EmailToken.swift in Sources */,
 				088EAD0A28512C62007FD854 /* StoryBoard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

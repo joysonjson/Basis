@@ -14,7 +14,7 @@ protocol EnvironmentProtocol {
 
 
 enum URLEndpoint:String {
-    case productus = "/candidate/users/email"
+    case sendotp = "/candidate/users/email/"
 }
 
 

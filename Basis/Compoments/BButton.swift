@@ -25,6 +25,11 @@ class BButton: UIButton {
             updateUI()
         }
     }
+    override var isEnabled: Bool {
+        didSet {
+            updateUI()
+        }
+    }
 
     /// End color of the gradient
     @IBInspectable public var endColor: UIColor = .clear {
@@ -32,7 +37,11 @@ class BButton: UIButton {
             updateUI()
         }
     }
-
+    @IBInspectable public var bColor: UIColor = UIColor(named: "green")! {
+        didSet {
+            updateUI()
+        }
+    }
     /// Border color of the view
     @IBInspectable public var borderColor: UIColor? = nil {
         didSet {
@@ -105,6 +114,11 @@ class BButton: UIButton {
         layer.borderColor = borderColor?.cgColor ?? tintColor.cgColor
         if cornerRadius > 0 {
             layer.masksToBounds = true
+        }
+        if (self.isEnabled){
+            self.backgroundColor = self.bColor
+        }else{
+            self.backgroundColor = .systemGray3
         }
         updateFrame()
     }

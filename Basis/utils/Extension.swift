@@ -103,14 +103,20 @@ public extension URL {
 }
 
 
-extension UITextField {
-    /// Moves the caret to the correct position by removing the trailing whitespace
-    func fixCaretPosition() {
-        // Moving the caret to the correct position by removing the trailing whitespace
-        // http://stackoverflow.com/questions/14220187/uitextfield-has-trailing-whitespace-after-securetextentry-toggle
-        let beginning = beginningOfDocument
-        selectedTextRange = textRange(from: beginning, to: beginning)
-        let end = endOfDocument
-        selectedTextRange = textRange(from: end, to: end)
+extension String {
+    var isValidEmail: Bool {
+        NSPredicate(format: "SELF MATCHES %@", "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}").evaluate(with: self)
     }
+}
+
+public extension Data {
+    func getJsonObject()->Any?{
+        do {
+            let json = try JSONSerialization.jsonObject(with: self, options: .allowFragments)
+            return json
+        } catch  is Error {
+            return Error.self
+        }
+    }
+
 }
