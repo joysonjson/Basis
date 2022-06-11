@@ -1,24 +1,28 @@
 PODS:
   - IQKeyboardManager (6.5.9)
   - LTMorphingLabel (0.9.3)
+  - OTPFieldView (1.0.1)
   - ProgressHUD (13.6)
 
 DEPENDENCIES:
   - IQKeyboardManager
   - LTMorphingLabel
+  - OTPFieldView
   - ProgressHUD
 
 SPEC REPOS:
   trunk:
     - IQKeyboardManager
     - LTMorphingLabel
+    - OTPFieldView
     - ProgressHUD
 
 SPEC CHECKSUMS:
   IQKeyboardManager: 241cc94ccabc9deb8f8bd7d12f00d73288d13ecc
   LTMorphingLabel: f2b256e4fe665aac27f0d0e8ccdcd79590f0cd70
+  OTPFieldView: 700a752fe62c41d1c4914c78aa500fb30d97c255
   ProgressHUD: 4bdaa0d2ddf676b23324b199f9facffb5c3a1620
 
-PODFILE CHECKSUM: 8f76cd1bbe1aa58f8ba9dc2fc9bbac2db6261b03
+PODFILE CHECKSUM: cfe2ce6f6ba1951ded77367dbca26722aeae8873
 
 COCOAPODS: 1.11.3

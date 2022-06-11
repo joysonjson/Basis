@@ -6,48 +6,58 @@
 //
 
 import UIKit
+import OTPFieldView
 
 class OtpVerifyViewController: UIViewController {
     @IBOutlet weak var submitButton: BButton!
     @IBOutlet weak var invalidOtpError: UILabel!
-    @IBOutlet weak var otpTextField: BTextField!
-    let vm = EmailViewModel()
+    @IBOutlet weak var otpView: OTPFieldView!
+    private var otp: String? = nil
+    var vm = OTPVerificationViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.bind()
+        self.setUP()
     }
     private func setUP(){
-        self.otpTextField.delegate = self
-
+          self.otpView.fieldsCount = 6
+          self.otpView.fieldBorderWidth = 2
+          self.otpView.defaultBorderColor = UIColor(named: "green")!
+          self.otpView.filledBorderColor = UIColor(named: "lightgreen")!
+          self.otpView.cursorColor = UIColor(named: "green")!
+          self.otpView.displayType = .underlinedBottom
+          self.otpView.fieldSize = 50
+          self.otpView.separatorSpace = 12
+          self.otpView.shouldAllowIntermediateEditing = false
+          self.otpView.delegate = self
+          self.otpView.initializeUI()
     }
     private func bind(){
-        self.vm.token.bind { t in
+        self.vm.user.bind { t in
             DispatchQueue.main.async {
-                let vc: OtpVerifyViewController = self.getViewController(in: StoryBoard.login.rawValue)
-                self.push(viewController: vc)
+                self.presentAlertWithTitle(title: "Logged In", message: "You have sucessffully logged in", options: [.ok]) { _ in
+                }
             }
         }
     }
     
     @IBAction func submitAction(_ sender: Any) {
-        self.vm.sendOtp(email: self.otpTextField.text ?? "")
+        self.vm.verifyUser()
     }
-    private func validate(){
-        if (self.otpTextField.text?.isValidEmail ?? false){
-            self.submitButton.isEnabled = true
-        }else{
-            self.submitButton.isEnabled = false
-        }
-    }
-
 }
 
-extension OtpVerifyViewController: UITextFieldDelegate{
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        self.validate()
+extension OtpVerifyViewController: OTPFieldViewDelegate {
+    func hasEnteredAllOTP(hasEnteredAll hasEntered: Bool) -> Bool {
+        self.submitButton.isEnabled  = hasEntered
+        return false
     }
- 
-    func textFieldDidChangeSelection(_ textField: UITextField) {
-        self.validate()
+    
+    func shouldBecomeFirstResponderForOTP(otpTextFieldIndex index: Int) -> Bool {
+        return true
+    }
+    
+    func enteredOTP(otp otpString: String) {
+        self.vm.verify.value?.verificationCode = otpString
+        print("OTPString: \(otpString)")
     }
 }

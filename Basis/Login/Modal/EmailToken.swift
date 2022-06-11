@@ -7,6 +7,6 @@
 
 import Foundation
 struct EmailToken: Decodable{
-    let token: String?
-    let isLogin: String?
+    let token: Int64?
+    let isLogin: Bool?
 }

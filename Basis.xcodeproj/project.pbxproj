@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08344ACF2854464E00F0D0FE /* OTPVerificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08344ACE2854464E00F0D0FE /* OTPVerificationViewModel.swift */; };
+		08344AD12854481400F0D0FE /* VerifyUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08344AD02854481400F0D0FE /* VerifyUser.swift */; };
 		088EACD228511D95007FD854 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088EACD128511D95007FD854 /* AppDelegate.swift */; };
 		088EACD428511D95007FD854 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088EACD328511D95007FD854 /* SceneDelegate.swift */; };
 		088EACD628511D95007FD854 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088EACD528511D95007FD854 /* ViewController.swift */; };
@@ -37,6 +39,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		08344ACE2854464E00F0D0FE /* OTPVerificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPVerificationViewModel.swift; sourceTree = "<group>"; };
+		08344AD02854481400F0D0FE /* VerifyUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyUser.swift; sourceTree = "<group>"; };
 		088EACCE28511D95007FD854 /* Basis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Basis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		088EACD128511D95007FD854 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		088EACD328511D95007FD854 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -194,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				088EAD15285308FF007FD854 /* EmailViewModel.swift */,
+				08344ACE2854464E00F0D0FE /* OTPVerificationViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -202,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				088EAD1A2853214A007FD854 /* EmailToken.swift */,
+				08344AD02854481400F0D0FE /* VerifyUser.swift */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -354,12 +360,14 @@
 				088EACF428512477007FD854 /* HTTPRequest.swift in Sources */,
 				088EAD0C28512C83007FD854 /* Endpoint.swift in Sources */,
 				088EACF528512477007FD854 /* NetworkSession.swift in Sources */,
+				08344AD12854481400F0D0FE /* VerifyUser.swift in Sources */,
 				088EACD228511D95007FD854 /* AppDelegate.swift in Sources */,
 				088EACFE28512BA2007FD854 /* EmailViewController.swift in Sources */,
 				088EACF828512477007FD854 /* ErrorResponse.swift in Sources */,
 				088EACF728512477007FD854 /* HTTPMethod.swift in Sources */,
 				088EACD428511D95007FD854 /* SceneDelegate.swift in Sources */,
 				088EAD1B2853214B007FD854 /* EmailToken.swift in Sources */,
+				08344ACF2854464E00F0D0FE /* OTPVerificationViewModel.swift in Sources */,
 				088EAD0A28512C62007FD854 /* StoryBoard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

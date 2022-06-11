@@ -9,4 +9,5 @@ target 'Basis' do
 pod 'ProgressHUD'
 pod 'IQKeyboardManager'
 pod 'LTMorphingLabel'
+pod 'OTPFieldView'
 end

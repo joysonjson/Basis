@@ -62,6 +62,14 @@ class BButton: UIButton {
             updateUI()
         }
     }
+    
+    func updateLayerProperties() {
+        self.layer.shadowColor = UIColor(named: "green")!.cgColor
+        self.layer.shadowOffset = CGSize(width: 1, height: 3)
+        self.layer.shadowOpacity = 5.0
+        self.layer.shadowRadius = 10.0
+        self.layer.masksToBounds = false
+    }
 
     // MARK: - Variables
     /// Closure is called on click event of the button
@@ -90,6 +98,7 @@ class BButton: UIButton {
     private func setupUI() {
         gradientlayer = CAGradientLayer()
         updateUI()
+        updateLayerProperties()
         layer.addSublayer(gradientlayer)
     }
 

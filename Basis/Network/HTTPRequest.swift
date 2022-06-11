@@ -72,6 +72,34 @@ struct HttpRequest{
             
         }
     }
+    /**
+     Post Api call
+     - Warning: Returns either sucess or failure
+     - Parameter url: URL
+     - Parameter data: Data?
+     - Parameter resultType: Generic Model Decodable object
+     - Parameter queryParams: [String:String]
+     - Parameter successBlock:(object: T ) -> Void
+     - Parameter failureBlock:(_ error: String) -> Void
+     */
+
+    func postApiData<T:Decodable>(endpoint: URLEndpoint, data:Data?,resultType: T.Type, queryParams:queryParams = [:],withSuccess successBlock:@escaping (_ object:T?)->Void,andFailure failureBlock: @escaping (_ error: String)->Void){
+        guard let url = URL(string: APIEnvironment.development.baseURL + endpoint.rawValue) else {
+            return
+        }
+        var req = createRequest.createRequest(httpMethod: .post, url: url, queryParams: queryParams, headers: headers)
+        req.httpBody = data
+//        req.addBody(param: data)
+        service.call(with: req) { (response,repsonseData,error ) in
+            let (staus,err,res) = self.reponseParser(response: response, responseData: repsonseData, error: error, resultType: T.self)
+            if (staus){
+                successBlock(res)
+            }else{
+                failureBlock(err ?? "")
+            }
+            
+        }
+    }
 }
 
 
