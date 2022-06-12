@@ -13,7 +13,7 @@ class OtpVerifyViewController: UIViewController {
     @IBOutlet weak var invalidOtpError: UILabel!
     @IBOutlet weak var otpView: OTPFieldView!
     private var otp: String? = nil
-    var vm = OTPVerificationViewModel()
+    var vm: OTPVerificationViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.bind()
@@ -39,6 +39,13 @@ class OtpVerifyViewController: UIViewController {
                 }
             }
         }
+        self.vm.error.bind { error in
+            DispatchQueue.main.async {
+                self.presentAlertWithTitle(title: "Error", message:error ?? "Sorry! Not able to login" , options: [.ok]) { _ in
+                }
+            }
+        }
+        
     }
     
     @IBAction func submitAction(_ sender: Any) {

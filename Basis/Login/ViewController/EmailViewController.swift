@@ -27,13 +27,19 @@ class EmailViewController: UIViewController {
                     let vc: OtpVerifyViewController = self.getViewController(in: StoryBoard.login.rawValue)
                     let vm = OTPVerificationViewModel()
                     vm.verify.value = VerifyUser(email: self.emailTextField.text ?? "", token: t?.token, verificationCode: "")
-                        vc.vm = vm
+                    vc.vm = vm
                     self.push(viewController: vc)
                 }else{
                     self.presentAlertWithTitle(title: "Alert", message: "Please sign up to login", options: [.ok]) { _ in
                     }
                 }
               
+            }
+        }
+        self.vm.error.bind { error in
+            DispatchQueue.main.async {
+                self.presentAlertWithTitle(title: "Erro", message:error ?? "Failed to send OTP" , options: [.ok]) { _ in
+                }
             }
         }
     }

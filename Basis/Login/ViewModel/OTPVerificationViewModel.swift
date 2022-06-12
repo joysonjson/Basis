@@ -16,7 +16,7 @@ struct OTPVerificationViewModel{
     func verifyUser(){
         let jsonData = try! JSONEncoder().encode(verify.value)
 
-        httpUtility.postApiData(endpoint: .sendotp,data: jsonData,resultType: EmailToken.self) { (res) in
+        httpUtility.postApiData(endpoint: .verifyotp,data: jsonData,resultType: EmailToken.self) { (res) in
 //            self.token.value = res
         } andFailure: { (err) in
             self.error.value = err

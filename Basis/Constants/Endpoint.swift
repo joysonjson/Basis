@@ -15,6 +15,8 @@ protocol EnvironmentProtocol {
 
 enum URLEndpoint:String {
     case sendotp = "/candidate/users/email/"
+    case verifyotp = "/candidate/users/email/verify/"
+
 }
 
 
