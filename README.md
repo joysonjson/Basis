@@ -43,6 +43,14 @@ POST 'https://hiring.getbasis.co/candidate/users/email/verify/'
 > I was not able to add testcases
 
 
+
+![](Screenshots/email_dark.png)
+![](Screenshots/otp_dark.png)
+![](Screenshots/email_light.png)
+![](Screenshots/otp_light.png)
+
+
+
 ## License
 
 Released under the [MIT License](http://www.opensource.org/licenses/MIT).
